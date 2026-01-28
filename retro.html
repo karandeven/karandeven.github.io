@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Karan Gupta — Retro Terminal</title>
+  <meta name="description" content="Retro CRT style portfolio page." />
+  <meta name="color-scheme" content="dark" />
+  <link rel="stylesheet" href="assets/retro.css" />
+</head>
+<body class="crt on">
+  <div class="screen">
+    <header class="wrap">
+      <pre class="ascii" aria-label="ASCII Logo">
+  ___  __   __   __   __   __   __        __   __   __
+ |__  /  ` /  \ |__) /  \ |__) |__)  /\  |__) /  \ |__)
+ |___ \__, \__/ |  \ \__/ |  \ |  \ /~~\ |  \ \__/ |  \
+      </pre>
+
+      <p class="intro">
+        Developer • Cloud & DevOps • Linux
+        <br />
+        Don’t like the effects?
+        <a id="fxToggle" href="#" class="link">Click to disable</a>
+      </p>
+
+      <nav class="grid grid-auto">
+        <a class="link" href="#about">About</a>
+        <a class="link" href="#skills">Skills</a>
+        <a class="link" href="#projects">Projects</a>
+        <a class="link" href="#contact">Contact</a>
+        <a class="link" href="https://github.com/karandeven" target="_blank" rel="noopener">GitHub</a>
+        <a class="link" href="https://linkedin.com/in/karandeven" target="_blank" rel="noopener">LinkedIn</a>
+      </nav>
+    </header>
+
+    <main class="wrap">
+      <section id="about" class="panel">
+        <h2>&gt; About Me</h2>
+        <p>Hey, I’m <strong>Karan Gupta</strong>. I build distraction‑free systems and I’m learning DevOps, Linux, automation, and practical engineering.</p>
+        <p>Current focus: GitHub Actions, Docker basics, clean CI for static sites, and sensible home‑lab notes.</p>
+      </section>
+
+      <section id="skills" class="panel">
+        <h2>&gt; Skills</h2>
+        <ul class="list">
+          <li>Git, GitHub, GitHub Actions (CI/CD)</li>
+          <li>Linux (Ubuntu), shell basics, system hygiene</li>
+          <li>Docker basics, Compose, reverse proxy fundamentals</li>
+          <li>Networking fundamentals, simple backup strategies</li>
+          <li>Python basics</li>
+        </ul>
+      </section>
+
+      <section id="projects" class="panel">
+        <h2>&gt; Projects</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>Static Site CI/CD</h3>
+            <p>Actions workflow that builds and deploys to GitHub Pages on every push.</p>
+            <p><a class="link" href="https://github.com/karandeven/karandeven.github.io" target="_blank" rel="noopener">Repo</a></p>
+          </article>
+          <article class="card">
+            <h3>Home Nextcloud</h3>
+            <p>Self‑hosted notes: Compose, reverse proxy and simple backup rotations.</p>
+            <p><a class="link" href="#contact">Docs (ping me)</a></p>
+          </article>
+          <article class="card">
+            <h3>ROM & System Tweaks</h3>
+            <p>Clean Android UI setup, DPI fits, practical privacy & monotone theme notes.</p>
+            <p><a class="link" href="#contact">Read (ping me)</a></p>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="panel">
+        <h2>&gt; Contact</h2>
+        <div class="grid two">
+          <form id="contactForm" class="form card">
+            <label>Name <input type="text" name="name" required></label>
+            <label>Email <input type="email" name="email" required></label>
+            <label>Message <textarea name="message" rows="4" required></textarea></label>
+            <button type="submit" class="btn">Send</button>
+            <p class="muted">Opens email draft to <strong>karandeven@proton.me</strong>.</p>
+          </form>
+
+          <div class="card">
+            <h3>Social</h3>
+            <ul class="list">
+              <li><a class="link" href="https://github.com/karandeven" target="_blank" rel="noopener">github.com/karandeven</a></li>
+              <li><a class="link" href="https://linkedin.com/in/karandeven" target="_blank" rel="noopener">linkedin.com/in/karandeven</a></li>
+              <li><a class="link" href="mailto:karandeven@proton.me">karandeven@proton.me</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="wrap panel">
+      <p>© <span id="year"></span> Karan Gupta · <a class="link" href="./">Back to modern version</a></p>
+    </footer>
+  </div>
+
+  <script src="assets/retro.js"></script>
+</body>
+</html>
