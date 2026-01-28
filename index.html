@@ -6,17 +6,16 @@
   <title>Karan Gupta — Portfolio</title>
   <meta name="description" content="Karan Gupta — Cloud & DevOps learner focusing on clean, distraction‑free systems." />
   <meta name="color-scheme" content="dark" />
-  <link rel="icon" href="assets/avatar.png" type="image/png" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="assets/avatar.png" />
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body id="top">
   <a class="skip" href="#main">Skip to content</a>
 
-  <header class="appbar">
+  <header class="appbar" role="banner">
     <div class="container appbar-row">
       <a class="brand" href="#top" aria-label="Home">
-        <img class="avatar" src="assets/avatar.png" alt="Karan Gupta avatar" />
+        <img class="avatar" src="assets/avatar.png" alt="Avatar" width="44" height="44" />
         <div>
           <div class="brand-name">Karan Gupta</div>
           <div class="brand-sub">Cloud & DevOps • Electronics & CS</div>
@@ -27,19 +26,50 @@
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
         <a href="#contact">Contact</a>
-        <a href="https://github.com/karandeven" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://linkedin.com/in/karandeven" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/karandeven" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/in/karandeven" rel="noopener">LinkedIn</a>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <section class="hero container">
-      <h1>Simple. Clean. Focused.</h1>
-      <p class="lead">I build distraction‑free systems and I’m learning DevOps, Linux, and automation—step by step.</p>
-      <div class="row">
-        <a class="btn filled" href="#projects">View projects</a>
-        <a class="btn tonal" href="#contact">Contact</a>
+    <!-- Hero as an expressive card (avatar aligned with name + field) -->
+    <section class="hero-wrap">
+      <div class="container">
+        <div class="hero-card">
+          <div class="hero-head">
+            <img class="hero-avatar" src="assets/avatar.png" alt="Avatar" width="72" height="72" />
+            <div>
+              <div class="hero-name">Karan Gupta</div>
+              <div class="hero-sub">Cloud & DevOps • Electronics & CS</div>
+            </div>
+          </div>
+
+          <h1 class="hero-title">Simple. Clean. Focused.</h1>
+          <p class="hero-lead">
+            I build distraction‑free systems and I’m learning DevOps, Linux, and automation—step by step.
+          </p>
+
+          <!-- Actions as cards -->
+          <div class="hero-actions">
+            <a class="card action-card" href="#projects">
+              <div class="action-title">View Projects</div>
+              <div class="action-sub">See what I’m building</div>
+            </a>
+            <a class="card action-card" href="#contact">
+              <div class="action-title">Contact</div>
+              <div class="action-sub">Email or message me</div>
+            </a>
+            <a class="card action-card" href="https://github.com/karandeven" rel="noopener">
+              <div class="action-title">GitHub</div>
+              <div class="action-sub">github.com/karandeven</div>
+            </a>
+            <a class="card action-card" href="https://linkedin.com/in/karandeven" rel="noopener">
+              <div class="action-title">LinkedIn</div>
+              <div class="action-sub">linkedin.com/in/karandeven</div>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -50,7 +80,7 @@
           <h3>Static Site CI/CD</h3>
           <p>GitHub Actions pipeline that builds and deploys a static site to GitHub Pages on every push.</p>
           <div class="actions">
-            <a class="btn text" href="https://github.com/karandeven/karandeven.github.io" target="_blank" rel="noopener">Repo</a>
+            <a class="btn text" href="https://github.com/karandeven/karandeven.github.io">Repo</a>
           </div>
         </article>
         <article class="card">
@@ -101,8 +131,7 @@
           <div class="t-dot"></div>
           <div class="t-content">
             <div class="t-head">
-              <strong>DevOps & Cloud Trainee — Internship</strong>
-              <span>2025</span>
+              <strong>DevOps & Cloud Trainee — Internship</strong><span>2025</span>
             </div>
             <p>Worked with Git, Actions, Docker basics and static site deployments.</p>
           </div>
@@ -111,8 +140,7 @@
           <div class="t-dot"></div>
           <div class="t-content">
             <div class="t-head">
-              <strong>Web Development — Internship</strong>
-              <span>2022</span>
+              <strong>Web Development — Internship</strong><span>2022</span>
             </div>
             <p>Front‑end fundamentals and clean UI practices.</p>
           </div>
@@ -134,8 +162,8 @@
           <h3>Reach me</h3>
           <ul class="links">
             <li><strong>Email:</strong> <a href="mailto:karandeven@proton.me">karandeven@proton.me</a></li>
-            <li><strong>GitHub:</strong> <a href="https://github.com/karandeven" target="_blank" rel="noopener">github.com/karandeven</a></li>
-            <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/karandeven" target="_blank" rel="noopener">linkedin.com/in/karandeven</a></li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/karandeven" rel="noopener">github.com/karandeven</a></li>
+            <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/karandeven" rel="noopener">linkedin.com/in/karandeven</a></li>
             <li><strong>Location:</strong> India</li>
           </ul>
         </div>
@@ -143,7 +171,7 @@
     </section>
   </main>
 
-  <footer class="footer">
+  <footer class="footer" role="contentinfo">
     <div class="container row-between">
       <div>© <span id="year"></span> Karan Gupta</div>
       <a class="muted" href="#top">Back to top</a>
