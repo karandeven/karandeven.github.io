@@ -14,31 +14,33 @@
 
   <header class="appbar" role="banner">
     <div class="container appbar-row">
-      <a class="brand" href="#top" aria-label="Home">
-        <img class="avatar" src="assets/avatar.png" alt="Avatar" width="44" height="44" />
+      <a href="#top" class="brand" aria-label="Home">
+        <img src="assets/avatar.png" alt="Karan Gupta avatar" class="avatar" />
         <div>
           <div class="brand-name">Karan Gupta</div>
           <div class="brand-sub">Cloud & DevOps • Electronics & CS</div>
         </div>
       </a>
+
       <nav class="nav" aria-label="Primary">
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
         <a href="#contact">Contact</a>
-        <a href="https://github.com/karandeven" rel="noopener">GitHub</a>
-        <a href="https://linkedin.com/in/karandeven" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/karandeven" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/in/karandeven" target="_blank" rel="noopener">LinkedIn</a>
+        <a id="enableRetro" class="nav-retro" href="#">Enable retro</a>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <!-- Hero as an expressive card (avatar aligned with name + field) -->
+    <!-- Hero as an expressive card (avatar aligned; actions as cards) -->
     <section class="hero-wrap">
       <div class="container">
         <div class="hero-card">
           <div class="hero-head">
-            <img class="hero-avatar" src="assets/avatar.png" alt="Avatar" width="72" height="72" />
+            <img src="assets/avatar.png" alt="Karan Gupta avatar" class="hero-avatar" />
             <div>
               <div class="hero-name">Karan Gupta</div>
               <div class="hero-sub">Cloud & DevOps • Electronics & CS</div>
@@ -46,25 +48,27 @@
           </div>
 
           <h1 class="hero-title">Simple. Clean. Focused.</h1>
+
+          <!-- DevOps word-by-word type/erase with static ∞ prefix -->
           <p class="hero-lead">
-            I build distraction‑free systems and I’m learning DevOps, Linux, and automation—step by step.
+            <span id="typePrefix" aria-hidden="true">∞ </span><span id="typeTarget" aria-live="polite"></span><span class="caret" aria-hidden="true">▍</span>
           </p>
 
           <!-- Actions as cards -->
           <div class="hero-actions">
-            <a class="card action-card" href="#projects">
+            <a class="action-card" href="#projects">
               <div class="action-title">View Projects</div>
               <div class="action-sub">See what I’m building</div>
             </a>
-            <a class="card action-card" href="#contact">
+            <a class="action-card" href="#contact">
               <div class="action-title">Contact</div>
               <div class="action-sub">Email or message me</div>
             </a>
-            <a class="card action-card" href="https://github.com/karandeven" rel="noopener">
+            <a class="action-card" href="https://github.com/karandeven" target="_blank" rel="noopener">
               <div class="action-title">GitHub</div>
               <div class="action-sub">github.com/karandeven</div>
             </a>
-            <a class="card action-card" href="https://linkedin.com/in/karandeven" rel="noopener">
+            <a class="action-card" href="https://linkedin.com/in/karandeven" target="_blank" rel="noopener">
               <div class="action-title">LinkedIn</div>
               <div class="action-sub">linkedin.com/in/karandeven</div>
             </a>
@@ -73,6 +77,7 @@
       </div>
     </section>
 
+    <!-- Projects -->
     <section id="projects" class="section container">
       <h2 class="title">Projects</h2>
       <div class="grid">
@@ -80,12 +85,12 @@
           <h3>Static Site CI/CD</h3>
           <p>GitHub Actions pipeline that builds and deploys a static site to GitHub Pages on every push.</p>
           <div class="actions">
-            <a class="btn text" href="https://github.com/karandeven/karandeven.github.io">Repo</a>
+            <a class="btn text" href="https://github.com/karandeven/karandeven.github.io" target="_blank" rel="noopener">Repo</a>
           </div>
         </article>
         <article class="card">
           <h3>Home Nextcloud</h3>
-          <p>Self‑host notes: compose, reverse proxy and simple backup strategy.</p>
+          <p>Self‑host notes: Compose, reverse proxy and simple backup strategy.</p>
           <div class="actions">
             <a class="btn text" href="#contact">Docs (ping me)</a>
           </div>
@@ -100,6 +105,7 @@
       </div>
     </section>
 
+    <!-- Skills -->
     <section id="skills" class="section container">
       <h2 class="title">Skills</h2>
       <div class="grid">
@@ -124,30 +130,35 @@
       </div>
     </section>
 
+    <!-- Experience as cards -->
     <section id="experience" class="section container">
       <h2 class="title">Experience</h2>
-      <div class="timeline">
-        <div class="t-item">
-          <div class="t-dot"></div>
-          <div class="t-content">
-            <div class="t-head">
-              <strong>DevOps & Cloud Trainee — Internship</strong><span>2025</span>
-            </div>
-            <p>Worked with Git, Actions, Docker basics and static site deployments.</p>
+      <div class="grid exp-grid">
+        <article class="card exp-card">
+          <div class="exp-head">
+            <div class="exp-title">DevOps & Cloud Trainee — Internship</div>
+            <div class="exp-time">2025</div>
           </div>
-        </div>
-        <div class="t-item">
-          <div class="t-dot"></div>
-          <div class="t-content">
-            <div class="t-head">
-              <strong>Web Development — Internship</strong><span>2022</span>
-            </div>
-            <p>Front‑end fundamentals and clean UI practices.</p>
+          <p class="exp-desc">Worked with Git, GitHub Actions, Docker basics and static site deployments to Pages.</p>
+          <div class="chips">
+            <span class="chip">CI/CD</span><span class="chip">Docker</span><span class="chip">Pages</span>
           </div>
-        </div>
+        </article>
+
+        <article class="card exp-card">
+          <div class="exp-head">
+            <div class="exp-title">Web Development — Internship</div>
+            <div class="exp-time">2022</div>
+          </div>
+          <p class="exp-desc">Front‑end fundamentals, clean UI, component structure and consistent code practices.</p>
+          <div class="chips">
+            <span class="chip">UI</span><span class="chip">HTML/CSS</span><span class="chip">Components</span>
+          </div>
+        </article>
       </div>
     </section>
 
+    <!-- Contact -->
     <section id="contact" class="section container">
       <h2 class="title">Contact</h2>
       <div class="grid contact">
@@ -162,8 +173,8 @@
           <h3>Reach me</h3>
           <ul class="links">
             <li><strong>Email:</strong> <a href="mailto:karandeven@proton.me">karandeven@proton.me</a></li>
-            <li><strong>GitHub:</strong> <a href="https://github.com/karandeven" rel="noopener">github.com/karandeven</a></li>
-            <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/karandeven" rel="noopener">linkedin.com/in/karandeven</a></li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/karandeven" target="_blank" rel="noopener">github.com/karandeven</a></li>
+            <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/karandeven" target="_blank" rel="noopener">linkedin.com/in/karandeven</a></li>
             <li><strong>Location:</strong> India</li>
           </ul>
         </div>
@@ -174,10 +185,19 @@
   <footer class="footer" role="contentinfo">
     <div class="container row-between">
       <div>© <span id="year"></span> Karan Gupta</div>
-      <a class="muted" href="#top">Back to top</a>
+      <a href="#top" class="muted">Back to top</a>
     </div>
   </footer>
 
+  <!-- Default to Retro unless user disabled it earlier -->
+  <script>
+    try {
+      if (localStorage.getItem('retro') !== 'off') {
+        window.location.replace('./retro.html');
+      }
+    } catch (e) {}
+  </script>
   <script src="assets/script.js"></script>
 </body>
 </html>
+``
