@@ -3,24 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Karan Devendra Gupta — Portfolio</title>
-  <meta name="description" content="Portfolio of Karan Devendra Gupta — Student, Cloud & DevOps learner." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Montserrat:wght@500;700&display=swap" rel="stylesheet" />
+  <title>Karan Gupta — Portfolio</title>
+  <meta name="description" content="Karan Gupta — Student exploring Cloud & DevOps, Linux, and systems." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css" />
-  <link rel="icon" href="assets/favicon.png" />
-  <meta name="color-scheme" content="dark" />
+  <meta name="color-scheme" content="dark">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
-  <header class="site-header">
-    <div class="container">
+  <header class="appbar">
+    <div class="container appbar-row">
       <div class="brand">
-        <img src="assets/avatar.png" alt="Karan avatar" class="brand-avatar" />
+        <img class="avatar" src="assets/avatar.png" alt="Karan Gupta" />
         <div>
-          <div class="brand-name">Karan Devendra Gupta</div>
+          <div class="brand-name">Karan Gupta</div>
           <div class="brand-sub">Cloud & DevOps • Electronics & CS</div>
         </div>
       </div>
@@ -29,103 +28,129 @@
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
         <a href="#contact">Contact</a>
-        <a class="ext" href="https://github.com/karandvn" target="_blank" rel="noopener">GitHub</a>
-        <a class="ext" href="https://in.linkedin.com/in/karandvn" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/karandeven" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://in.linkedin.com/in/karandvn" target="_blank" rel="noopener">LinkedIn</a>
       </nav>
-      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">◐</button>
     </div>
   </header>
 
   <main id="main">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-text">
-          <span class="pill">Focused. Minimal. Fast.</span>
-          <h1>Building clean systems, automations, and useful projects.</h1>
-          <p class="lead">
-            I’m Karan, a student exploring DevOps, cloud, Linux, and practical engineering. I like minimal, distraction‑free workflows and shipping things that work.
-          </p>
-          <div class="cta">
-            <a href="#projects" class="btn primary">View Projects</a>
-            <a href="#contact" class="btn ghost">Contact</a>
+    <section class="hero container">
+      <div>
+        <h1>Simple, fast, and distraction‑free.</h1>
+        <p class="lead">I’m Karan Gupta. I like building clean systems and learning DevOps, Linux, and automation step‑by‑step.</p>
+        <div class="row">
+          <a class="btn filled" href="#projects">View Projects</a>
+          <a class="btn tonal" href="#contact">Contact</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section container">
+      <h2 class="title">Projects</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Static Site CI/CD</h3>
+          <p>GitHub Actions workflow to build and deploy a static site to GitHub Pages.</p>
+          <div class="chips">
+            <span class="chip">Actions</span><span class="chip">Pages</span><span class="chip">Node</span>
           </div>
-          <ul class="quick">
-            <li>GitHub Actions CI/CD</li>
-            <li>Docker & Linux Basics</li>
-            <li>Networking Fundamentals</li>
-            <li>Python Basics</li>
+          <div class="actions"><a href="#" class="btn text">Repo</a></div>
+        </article>
+        <article class="card">
+          <h3>Home Nextcloud</h3>
+          <p>Notes on self‑hosting personal storage with backups and simple security.</p>
+          <div class="chips">
+            <span class="chip">Docker</span><span class="chip">Reverse Proxy</span><span class="chip">Backup</span>
+          </div>
+          <div class="actions"><a href="#" class="btn text">Docs</a></div>
+        </article>
+        <article class="card">
+          <h3>ROM & System Tweaks</h3>
+          <p>Clean Android UI setup, DPI fits, and practical privacy tweaks.</p>
+          <div class="chips">
+            <span class="chip">Material</span><span class="chip">Privacy</span><span class="chip">Notes</span>
+          </div>
+          <div class="actions"><a href="#" class="btn text">Read</a></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" class="section container">
+      <h2 class="title">Skills</h2>
+      <div class="grid skills">
+        <ul class="card list">
+          <h4>Core</h4>
+          <li>Git, GitHub</li>
+          <li>GitHub Actions</li>
+          <li>Docker basics</li>
+          <li>Linux (Ubuntu)</li>
+        </ul>
+        <ul class="card list">
+          <h4>Programming</h4>
+          <li>Python basics</li>
+          <li>Shell scripting</li>
+        </ul>
+        <ul class="card list">
+          <h4>Foundations</h4>
+          <li>Networking fundamentals</li>
+          <li>System design basics</li>
+          <li>Cloud concepts</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="experience" class="section container">
+      <h2 class="title">Experience</h2>
+      <div class="timeline">
+        <div class="t-item">
+          <div class="t-dot"></div>
+          <div class="t-content">
+            <div class="t-head"><strong>DevOps & Cloud Trainee — Internship</strong><span>2025</span></div>
+            <p>Hands‑on with Git, Actions, Docker basics, and deploying static sites.</p>
+          </div>
+        </div>
+        <div class="t-item">
+          <div class="t-dot"></div>
+          <div class="t-content">
+            <div class="t-head"><strong>Web Development — Internship</strong><span>2022</span></div>
+            <p>Front‑end fundamentals, clean UI, and consistent code practices.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section container">
+      <h2 class="title">Contact</h2>
+      <div class="grid contact">
+        <form id="contactForm" class="card form">
+          <label>Name<input type="text" name="name" required></label>
+          <label>Email<input type="email" name="email" required></label>
+          <label>Message<textarea name="message" rows="4" required></textarea></label>
+          <button type="submit" class="btn filled">Send</button>
+          <p class="note">Opens your email app with a prefilled draft.</p>
+        </form>
+        <div class="card">
+          <h3>Reach me</h3>
+          <p class="muted">Prefer email for quick replies.</p>
+          <ul class="links">
+            <li><strong>Email:</strong> your.email@example.com</li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/karandeven" target="_blank" rel="noopener">github.com/karandeven</a></li>
+            <li><strong>LinkedIn:</strong> <a href="https://in.linkedin.com/in/karandvn" target="_blank" rel="noopener">in.linkedin.com/in/karandvn</a></li>
+            <li><strong>Location:</strong> India</li>
           </ul>
         </div>
-        <div class="hero-art">
-          <img src="assets/hero-illustration.svg" alt="Abstract cloud & pipeline illustration" />
-        </div>
       </div>
     </section>
+  </main>
 
-    <section id="projects" class="section">
-      <div class="container">
-        <h2 class="section-title">Projects</h2>
-        <div class="grid cards">
-          <article class="card">
-            <div class="chip">Infra</div>
-            <h3>Home Nextcloud</h3>
-            <p>Self‑hosted personal cloud with storage planning, user access, and hardened basics.</p>
-            <ul class="meta">
-              <li>Docker compose</li>
-              <li>Reverse proxy</li>
-              <li>Backups</li>
-            </ul>
-            <div class="actions">
-              <a class="btn small" href="#" aria-disabled="true">Docs</a>
-              <a class="btn small ghost" href="#" aria-disabled="true">Repo</a>
-            </div>
-          </article>
-          <article class="card">
-            <div class="chip">CI/CD</div>
-            <h3>Static Site Pipeline</h3>
-            <p>GitHub Actions that lints, tests, builds, and deploys a static site to Pages.</p>
-            <ul class="meta">
-              <li>Node 20</li>
-              <li>Artifacts & Pages</li>
-              <li>Cache</li>
-            </ul>
-            <div class="actions">
-              <a class="btn small" href="#" aria-disabled="true">Workflow</a>
-              <a class="btn small ghost" href="#" aria-disabled="true">Repo</a>
-            </div>
-          </article>
-          <article class="card">
-            <div class="chip">Systems</div>
-            <h3>ROM & System Tweaks</h3>
-            <p>Notes on clean UI setups, device configs, and practical optimization without bloat.</p>
-            <ul class="meta">
-              <li>Material theme</li>
-              <li>DPI best‑fit</li>
-              <li>Privacy</li>
-            </ul>
-            <div class="actions">
-              <a class="btn small" href="#" aria-disabled="true">Read</a>
-              <a class="btn small ghost" href="#" aria-disabled="true">Repo</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+  <footer class="footer">
+    <div class="container row-between">
+      <div>© <span id="year"></span> Karan Gupta</div>
+      <div class="muted"><a class="muted" href="#top">Back to top</a></div>
+    </div>
+  </footer>
 
-    <section id="skills" class="section">
-      <div class="container">
-        <h2 class="section-title">Skills</h2>
-        <div class="skills">
-          <div>
-            <h4>Core</h4>
-            <ul>
-              <li>Git, GitHub</li>
-              <li>GitHub Actions</li>
-              <li>Docker basics</li>
-              <li>Linux (Ubuntu)</li>
-            </ul>
-          </div>
-          <div>
-            <h4>Programming</h4>
-            <ul>
-              <li>Python basics</li>
+  <script src="assets/script.js"></script>
+</body>
+</html>
