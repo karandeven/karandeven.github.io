@@ -93,3 +93,28 @@ footer.wrap.panel{margin:16px 18px}
 @media (max-width:900px){
   .grid.two{grid-template-columns:1fr}
 }
+
+/* Bigger, centered retro header — keeps CRT glow */
+.ascii{
+  margin: 0 0 12px 0;
+  white-space: pre;
+  display: block;
+  text-align: center;                   /* center align */
+  color: var(--accent);                 /* neon green */
+  text-shadow:
+    0 0 2px rgba(214,255,214,.6),
+    0 0 6px rgba(140,255,140,.35),
+    0 0 22px rgba(120,255,120,.18);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-weight: 900;
+  letter-spacing: .18em;                /* wider letters for logo feel */
+  line-height: 1.05;
+  font-size: clamp(40px, 9vw, 120px);   /* responsive large size */
+}
+
+/* Optional: subtle divider below the logo */
+.ascii + .intro{
+  border-top: 1px solid var(--line);
+  margin-top: 10px;
+  padding-top: 10px;
+}
