@@ -3,201 +3,205 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Karan Gupta — Portfolio</title>
-  <meta name="description" content="Karan Gupta — Cloud & DevOps learner focusing on clean, distraction‑free systems." />
-  <meta name="color-scheme" content="dark" />
-  <link rel="preload" as="image" href="assets/avatar.png" />
-  <link rel="stylesheet" href="assets/style.css" />
+  <title>Karan Devendra Gupta · DevOps & Cloud</title>
+  <meta name="description" content="Portfolio of Karan Devendra Gupta — DevOps & Cloud Engineer (Student). Linux · AWS EC2 · Git & GitHub · CI/CD · Docker · Kubernetes." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Manrope:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css" />
 </head>
-<body id="top">
-  <a class="skip" href="#main">Skip to content</a>
-
-  <header class="appbar" role="banner">
-    <div class="container appbar-row">
-      <a href="#top" class="brand" aria-label="Home">
-        <img src="assets/avatar.png" alt="Karan Gupta avatar" class="avatar" />
-        <div>
-          <div class="brand-name">Karan Gupta</div>
-          <div class="brand-sub">Cloud & DevOps • Electronics & CS</div>
-        </div>
-      </a>
-
-      <nav class="nav" aria-label="Primary">
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
-        <a href="https://github.com/karandeven" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://t.me/krn0g" target="_blank" rel="noopener">Telegram</a>
-        <a id="enableRetro" class="nav-retro" href="#">Enable retro</a>
-      </nav>
-    </div>
+<body>
+  <div class="bg-gradient"></div>
+  <header class="nav glass">
+    <div class="brand">KD<span class="dot">.</span></div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">DevOps Skills</a>
+      <a href="#tools">Tools</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
-  <main id="main">
-    <!-- Hero as an expressive card (avatar aligned; actions as cards) -->
-    <section class="hero-wrap">
-      <div class="container">
-        <div class="hero-card">
-          <div class="hero-head">
-            <img src="assets/avatar.png" alt="Karan Gupta avatar" class="hero-avatar" />
-            <div>
-              <div class="hero-name">Karan Gupta</div>
-              <div class="hero-sub">Cloud & DevOps • Electronics & Computer Science</div>
-            </div>
-          </div>
-
-          <h1 class="hero-title">Automation. Cloud. Devops.</h1>
-
-          <!-- DevOps word-by-word type/erase with static ∞ prefix -->
-          <p class="hero-lead">
-            <span id="typePrefix" aria-hidden="true">∞ </span><span id="typeTarget" aria-live="polite"></span><span class="caret" aria-hidden="true">▍</span>
-          </p>
-
-          <!-- Actions as cards -->
-          <div class="hero-actions">
-            <a class="action-card" href="#projects">
-              <div class="action-title">View Projects</div>
-              <div class="action-sub">See what I’m building</div>
-            </a>
-            <a class="action-card" href="#contact">
-              <div class="action-title">Contact</div>
-              <div class="action-sub">Email or message me</div>
-            </a>
-            <a class="action-card" href="https://github.com/karandeven" target="_blank" rel="noopener">
-              <div class="action-title">GitHub</div>
-              <div class="action-sub">github.com/karandeven</div>
-            </a>
-            <a class="action-card" href="https://t.me/krn0g" target="_blank" rel="noopener">
-              <div class="action-title">Telegram</div>
-              <div class="action-sub">t.me/in/krn0g</div>
-            </a>
-          </div>
+  <main>
+    <!-- Hero -->
+    <section class="hero glass">
+      <div class="hero-left">
+        <h1>hi, I’m <span class="accent">Karan Devendra Gupta</span></h1>
+        <p class="tag">DevOps & Cloud — Student · 2026</p>
+        <p class="sub">I like clean systems, practical automation, and learning by shipping.</p>
+        <div class="message-roller" aria-live="polite">
+          <span id="devops-msg">Running CI…</span>
         </div>
+        <div class="cta-row">
+          <a class="btn primary" href="#projects">See Projects</a>
+          <a class="btn" href="#contact">Contact</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <!-- Infinity animation -->
+        <svg class="infinity" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" aria-label="Infinity animation">
+          <defs>
+            <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#70f"/>
+              <stop offset="50%" stop-color="#0ff"/>
+              <stop offset="100%" stop-color="#0f9"/>
+            </linearGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="3.5" result="coloredBlur"/>
+              <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+          <path id="lemniscate" d="M50,100 C50,20 190,20 200,100 C210,180 350,180 350,100 C350,20 210,20 200,100 C190,180 50,180 50,100 Z"
+                fill="none" stroke="url(#grad)" stroke-width="6" stroke-linecap="round" filter="url(#glow)"/>
+          <use href="#lemniscate" stroke-dasharray="18 14" stroke-width="6" opacity="0.6">
+            <animate attributeName="stroke-dashoffset" from="0" to="-200" dur="6s" repeatCount="indefinite"/>
+          </use>
+          <circle r="7" fill="#fff">
+            <animateMotion dur="6s" repeatCount="indefinite" rotate="auto">
+              <mpath href="#lemniscate"/>
+            </animateMotion>
+          </circle>
+        </svg>
       </div>
     </section>
 
-    <!-- Projects -->
-    <section id="projects" class="section container">
-      <h2 class="title">Projects</h2>
-      <div class="grid">
-        <article class="card">
-          <h3>Static Site CI/CD</h3>
-          <p>GitHub Actions pipeline that builds and deploys a static site to GitHub Pages on every push.</p>
-          <div class="actions">
-            <a class="btn text" href="https://github.com/karandeven/karandeven.github.io" target="_blank" rel="noopener">Repo</a>
-          </div>
-        </article>
-        <article class="card">
-          <h3>Home Nextcloud</h3>
-          <p>Self‑host notes: Compose, reverse proxy and simple backup strategy.</p>
-          <div class="actions">
-            <a class="btn text" href="#contact">Docs (ping me)</a>
-          </div>
-        </article>
-        <article class="card">
-          <h3>ROM & System Tweaks</h3>
-          <p>Clean Android UI setup, DPI fit and practical privacy tweaks.</p>
-          <div class="actions">
-            <a class="btn text" href="#contact">Read (ping me)</a>
-          </div>
-        </article>
+    <!-- About -->
+    <section id="about" class="section glass">
+      <h2>About me</h2>
+      <p>
+        I’m a final-year undergraduate in Electronics & Computer Science (Mumbai), aiming for a
+        DevOps & Cloud role. I prefer a minimal setup, Linux-first workflow, and privacy‑friendly tools.
+        Currently learning Linux on AWS EC2 and building my foundations in Git/GitHub and CI/CD.
+      </p>
+      <div class="chips">
+        <span class="chip">Linux</span>
+        <span class="chip">AWS EC2</span>
+        <span class="chip">Git & GitHub</span>
+        <span class="chip">CI/CD (GitHub Actions)</span>
+        <span class="chip">Bash</span>
       </div>
     </section>
 
     <!-- Skills -->
-    <section id="skills" class="section container">
-      <h2 class="title">Skills</h2>
-      <div class="grid">
-        <ul class="card list">
-          <h4>Core</h4>
-          <li>Git, GitHub</li>
-          <li>GitHub Actions</li>
-          <li>Docker basics</li>
-          <li>Linux (Ubuntu)</li>
-        </ul>
-        <ul class="card list">
-          <h4>Programming</h4>
-          <li>Python basics</li>
-          <li>Shell scripting</li>
-        </ul>
-        <ul class="card list">
-          <h4>Foundations</h4>
-          <li>Networking fundamentals</li>
-          <li>System design basics</li>
-          <li>Cloud concepts</li>
-        </ul>
+    <section id="skills" class="section glass">
+      <h2>DevOps Skills</h2>
+      <div class="skill-columns">
+        <div class="card">
+          <h3>Learning now</h3>
+          <ul>
+            <li>Linux administration (users, permissions, services)</li>
+            <li>AWS EC2 basics (SSH, security groups, systemd)</li>
+            <li>Git & GitHub workflow</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Up next</h3>
+          <ul>
+            <li>Docker fundamentals</li>
+            <li>CI/CD with GitHub Actions</li>
+            <li>Terraform on AWS</li>
+            <li>Kubernetes basics</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Core concepts</h3>
+          <ul>
+            <li>Automation mindset</li>
+            <li>Version control</li>
+            <li>Security & least privilege</li>
+            <li>Monitoring & observability (intro)</li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <!-- Experience as cards -->
-    <section id="experience" class="section container">
-      <h2 class="title">Experience</h2>
-      <div class="grid exp-grid">
-        <article class="card exp-card">
-          <div class="exp-head">
-            <div class="exp-title">DevOps & Cloud Trainee — Internship</div>
-            <div class="exp-time">2025</div>
-          </div>
-          <p class="exp-desc">Worked with Git, GitHub Actions, Docker basics and static site deployments to Pages.</p>
-          <div class="chips">
-            <span class="chip">CI/CD</span><span class="chip">Docker</span><span class="chip">Pages</span>
-          </div>
-        </article>
+    <!-- Tools -->
+    <section id="tools" class="section glass">
+      <h2>Tools</h2>
+      <p class="muted">I update this list weekly as I learn.</p>
+      <div class="tool-grid">
+        <div class="tool on">Linux</div>
+        <div class="tool on">Git</div>
+        <div class="tool on">GitHub</div>
+        <div class="tool on">AWS EC2</div>
+        <div class="tool next">GitHub Actions</div>
+        <div class="tool next">Docker</div>
+        <div class="tool next">Terraform</div>
+        <div class="tool next">Kubernetes</div>
+        <div class="tool off">Ansible</div>
+        <div class="tool off">Prometheus</div>
+      </div>
+    </section>
 
-        <article class="card exp-card">
-          <div class="exp-head">
-            <div class="exp-title">Web Development — Internship</div>
-            <div class="exp-time">2022</div>
+    <!-- Projects -->
+    <section id="projects" class="section glass">
+      <h2>Projects</h2>
+      <div class="projects">
+        <article class="project">
+          <div class="project-head">
+            <h3>Linux on AWS EC2 — hardening & users</h3>
+            <span class="badge inprogress">in progress</span>
           </div>
-          <p class="exp-desc">Front‑end fundamentals, clean UI, component structure and consistent code practices.</p>
-          <div class="chips">
-            <span class="chip">UI</span><span class="chip">HTML/CSS</span><span class="chip">Components</span>
+          <p>Spin up EC2, secure SSH, create non‑root users, sudo rules, firewall, basic monitoring.</p>
+          <div class="meta">
+            <span>Linux</span><span>AWS EC2</span><span>Bash</span>
           </div>
+          <a class="link" href="https://github.com/karandeven" target="_blank" rel="noopener">repo</a>
+        </article>
+        <article class="project">
+          <div class="project-head">
+            <h3>Dockerized Nginx on EC2 with CI</h3>
+            <span class="badge planned">planned</span>
+          </div>
+          <p>Containerize Nginx, build & push on GitHub Actions, deploy to EC2 via systemd + Compose.</p>
+          <div class="meta">
+            <span>Docker</span><span>GitHub Actions</span><span>EC2</span>
+          </div>
+          <a class="link" href="https://github.com/karandeven" target="_blank" rel="noopener">repo</a>
+        </article>
+        <article class="project">
+          <div class="project-head">
+            <h3>Terraform VPC lab</h3>
+            <span class="badge planned">planned</span>
+          </div>
+          <p>Define VPC, subnets, route tables, IGW/NAT, EC2 instance with security groups — all IaC.</p>
+          <div class="meta">
+            <span>Terraform</span><span>AWS</span>
+          </div>
+          <a class="link" href="https://github.com/karandeven" target="_blank" rel="noopener">repo</a>
         </article>
       </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="section container">
-      <h2 class="title">Contact</h2>
-      <div class="grid contact">
-        <form id="contactForm" class="card form">
-          <label>Name<input type="text" name="name" required></label>
-          <label>Email<input type="email" name="email" required></label>
-          <label>Message<textarea name="message" rows="4" required></textarea></label>
-          <button type="submit" class="btn filled">Send</button>
-          <p class="note">Opens your email app with a pre‑filled draft to <strong>karandeven@proton.me</strong>.</p>
-        </form>
-        <div class="card">
-          <h3>Reach me</h3>
-          <ul class="links">
-            <li><strong>Email:</strong> <a href="mailto:karandeven@proton.me">karandeven@proton.me</a></li>
-            <li><strong>GitHub:</strong> <a href="https://github.com/karandeven" target="_blank" rel="noopener">github.com/karandeven</a></li>
-            <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/karandeven" target="_blank" rel="noopener">linkedin.com/in/karandeven</a></li>
-            <li><strong>Location:</strong> India</li>
-          </ul>
-        </div>
+    <section id="contact" class="section glass">
+      <h2>Contact</h2>
+      <div class="contact-grid">
+        <a class="contact card" href="mailto:karandeven@proton.me">
+          <span class="label">Email</span>
+          <span class="value">karandeven@proton.me</span>
+        </a>
+        <a class="contact card" href="https://github.com/karandeven" target="_blank" rel="noopener">
+          <span class="label">GitHub</span>
+          <span class="value">github.com/karandeven</span>
+        </a>
+        <a class="contact card" href="https://t.me/KRN0G" target="_blank" rel="noopener">
+          <span class="label">Telegram</span>
+          <span class="value">@KRN0G</span>
+        </a>
       </div>
     </section>
+
   </main>
 
-  <footer class="footer" role="contentinfo">
-    <div class="container row-between">
-      <div>© <span id="year"></span> Karan Gupta</div>
-      <a href="#top" class="muted">Back to top</a>
-    </div>
+  <footer class="foot glass">
+    <span>© <span id="year"></span> Karan Devendra Gupta</span>
   </footer>
 
-  <!-- Default to Retro unless user disabled it earlier -->
-  <script>
-    try {
-      if (localStorage.getItem('retro') !== 'off') {
-        window.location.replace('./retro.html');
-      }
-    } catch (e) {}
-  </script>
   <script src="assets/script.js"></script>
 </body>
 </html>
-``
