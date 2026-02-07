@@ -3,9 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>karandeven · DevOps & Cloud (Student)</title>
 
-  <meta name="description" content="karandeven — final year student learning DevOps & Cloud through hands-on labs, Linux systems, AWS EC2, Git, and automation fundamentals." />
+  <title>karandeven · DevOps & Cloud (Learning)</title>
+
+  <meta name="description" content="karandeven — final-year student learning DevOps & Cloud through hands-on Linux, AWS EC2 labs, and personal projects like SentinelOps." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,39 +18,38 @@
 <body>
   <div class="bg-gradient"></div>
 
-  <!-- Navigation -->
+  <!-- NAV -->
   <header class="nav glass">
     <div class="brand">karandeven<span class="dot">.</span></div>
     <nav>
       <a href="#about">About</a>
-      <a href="#focus">Focus</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Labs</a>
+      <a href="#learning">Learning</a>
+      <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <main>
 
-    <!-- Hero -->
+    <!-- HERO -->
     <section class="hero glass">
       <div class="hero-left">
         <h1>hi, I’m <span class="accent">karandeven</span></h1>
 
-        <p class="tag">DevOps & Cloud · Final-year student (2026)</p>
+        <p class="tag">DevOps & Cloud · final-year student (2026)</p>
 
         <p class="sub">
-          I’m learning DevOps the slow and honest way — by building,
-          breaking, fixing, and documenting Linux and cloud systems.
+          I’m learning DevOps by doing — setting up Linux systems,
+          experimenting on cloud VMs, and slowly building real understanding.
         </p>
 
         <div class="message-roller" aria-live="polite">
-          <span id="devops-msg">learning → testing → repeating</span>
+          <span id="devops-msg">learn → break → fix → repeat</span>
         </div>
 
         <div class="cta-row">
-          <a class="btn primary" href="#projects">View labs</a>
-          <a class="btn" href="#contact">Contact</a>
+          <a class="btn primary" href="#projects">see my work</a>
+          <a class="btn" href="#contact">contact</a>
         </div>
       </div>
 
@@ -57,9 +57,9 @@
         <svg class="infinity" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#7a7cff"/>
-              <stop offset="50%" stop-color="#4fd1c5"/>
-              <stop offset="100%" stop-color="#7cffc4"/>
+              <stop offset="0%" stop-color="#8b5cf6"/>
+              <stop offset="50%" stop-color="#22d3ee"/>
+              <stop offset="100%" stop-color="#34d399"/>
             </linearGradient>
             <filter id="glow">
               <feGaussianBlur stdDeviation="3" result="blur"/>
@@ -71,95 +71,90 @@
           </defs>
 
           <path id="loop"
-                d="M50,100 C50,20 190,20 200,100 C210,180 350,180 350,100 C350,20 210,20 200,100 C190,180 50,180 50,100 Z"
-                fill="none"
-                stroke="url(#grad)"
-                stroke-width="5"
-                filter="url(#glow)" />
+            d="M50,100 C50,20 190,20 200,100 C210,180 350,180 350,100
+               C350,20 210,20 200,100 C190,180 50,180 50,100 Z"
+            fill="none"
+            stroke="url(#grad)"
+            stroke-width="5"
+            filter="url(#glow)" />
 
           <use href="#loop" stroke-dasharray="16 14" stroke-width="5" opacity="0.6">
             <animate attributeName="stroke-dashoffset"
-                     from="0"
-                     to="-220"
+                     from="0" to="-220"
                      dur="6s"
-                     repeatCount="indefinite"/>
+                     repeatCount="indefinite" />
           </use>
         </svg>
       </div>
     </section>
 
-    <!-- About -->
+    <!-- ABOUT -->
     <section id="about" class="section glass">
       <h2>About</h2>
 
       <p>
-        I’m a final-year undergraduate student from Mumbai, currently focused on
-        building strong foundations in DevOps and cloud engineering.
-        I prefer Linux-first workflows, minimal tools, and learning by doing
-        rather than memorizing theory.
+        I’m a final-year undergraduate student based in Mumbai.
+        My current focus is building a strong foundation in DevOps and cloud
+        by working directly with Linux systems and AWS.
       </p>
 
       <p class="muted">
-        This site reflects what I am actually learning and working on — not
-        what I claim to already know.
+        This portfolio is intentionally simple and honest.
+        It shows what I am learning and building — not exaggerated claims.
       </p>
     </section>
 
-    <!-- Focus -->
-    <section id="focus" class="section glass">
-      <h2>Current focus</h2>
+    <!-- LEARNING -->
+    <section id="learning" class="section glass">
+      <h2>What I’m learning right now</h2>
 
       <div class="chips">
         <span class="chip">Linux fundamentals</span>
-        <span class="chip">AWS EC2 labs</span>
+        <span class="chip">AWS EC2 hands-on</span>
+        <span class="chip">SSH & permissions</span>
+        <span class="chip">Basic security</span>
         <span class="chip">Git & GitHub workflow</span>
-        <span class="chip">Shell basics</span>
-        <span class="chip">CI/CD concepts</span>
       </div>
     </section>
 
-    <!-- Skills -->
-    <section id="skills" class="section glass">
-      <h2>Skills (realistic)</h2>
-
-      <div class="skill-columns">
-        <div class="card">
-          <h3>Comfortable with</h3>
-          <ul>
-            <li>Linux CLI & file system</li>
-            <li>User & permission management</li>
-            <li>SSH, basic system hardening</li>
-            <li>Git basics (clone, commit, push)</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Actively learning</h3>
-          <ul>
-            <li>AWS EC2 hands-on labs</li>
-            <li>Security groups & networking basics</li>
-            <li>GitHub Actions (intro)</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Planned next</h3>
-          <ul>
-            <li>Docker fundamentals</li>
-            <li>CI/CD pipelines</li>
-            <li>Terraform basics</li>
-            <li>Kubernetes concepts</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects / Labs -->
+    <!-- PROJECTS -->
     <section id="projects" class="section glass">
-      <h2>Labs & work-in-progress</h2>
+      <h2>Projects & labs</h2>
 
       <div class="projects">
 
+        <!-- SentinelOps -->
+        <article class="project">
+          <div class="project-head">
+            <h3>SentinelOps</h3>
+            <span class="badge inprogress">personal · ongoing</span>
+          </div>
+
+          <p>
+            SentinelOps is my long-term personal learning project.
+            The idea is to slowly build a small DevOps-style setup
+            while understanding how monitoring, logging,
+            automation, and reliability fit together.
+          </p>
+
+          <p class="muted">
+            Right now, this project focuses on Linux systems,
+            basic service awareness, and forming a DevOps mindset.
+            It will evolve as my skills grow.
+          </p>
+
+          <div class="meta">
+            <span>Linux</span>
+            <span>Systems thinking</span>
+            <span>DevOps concepts</span>
+          </div>
+
+          <a class="link" href="https://github.com/karandeven" target="_blank" rel="noopener">
+            repo (work in progress)
+          </a>
+        </article>
+
+        <!-- Linux EC2 -->
         <article class="project">
           <div class="project-head">
             <h3>Linux hardening on AWS EC2</h3>
@@ -167,9 +162,9 @@
           </div>
 
           <p>
-            Practicing Linux administration on a cloud VM:
-            non-root users, SSH hardening, sudo rules,
-            firewall basics, and system monitoring.
+            Practicing Linux administration on AWS EC2:
+            user management, SSH hardening, sudo rules,
+            firewall basics, and simple monitoring.
           </p>
 
           <div class="meta">
@@ -178,52 +173,37 @@
             <span>Bash</span>
           </div>
 
-          <a class="link" href="https://github.com/karandeven" target="_blank" rel="noopener">repo</a>
+          <a class="link" href="https://github.com/karandeven" target="_blank" rel="noopener">
+            repo
+          </a>
         </article>
 
+        <!-- Docker -->
         <article class="project">
           <div class="project-head">
-            <h3>Docker + Nginx deployment lab</h3>
+            <h3>Docker learning lab</h3>
             <span class="badge planned">planned</span>
           </div>
 
           <p>
-            Learning Docker by containerizing a simple Nginx service
-            and deploying it on EC2 with basic automation.
+            Learning Docker fundamentals by containerizing
+            a simple service and running it on a Linux server.
           </p>
 
           <div class="meta">
             <span>Docker</span>
-            <span>Nginx</span>
             <span>Linux</span>
           </div>
 
-          <a class="link" href="https://github.com/karandeven" target="_blank" rel="noopener">repo</a>
-        </article>
-
-        <article class="project">
-          <div class="project-head">
-            <h3>Terraform AWS practice</h3>
-            <span class="badge planned">planned</span>
-          </div>
-
-          <p>
-            Infrastructure-as-Code practice:
-            VPC, subnets, security groups, and EC2 provisioning.
-          </p>
-
-          <div class="meta">
-            <span>Terraform</span>
-            <span>AWS</span>
-          </div>
-
-          <a class="link" href="https://github.com/karandeven" target="_blank" rel="noopener">repo</a>
+          <a class="link" href="https://github.com/karandeven" target="_blank" rel="noopener">
+            repo
+          </a>
         </article>
 
       </div>
     </section>
 
-    <!-- Contact -->
+    <!-- CONTACT -->
     <section id="contact" class="section glass">
       <h2>Contact</h2>
 
