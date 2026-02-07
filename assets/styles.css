@@ -76,3 +76,136 @@ main{max-width:1100px;margin:0 auto;padding:10px}
   .projects{grid-template-columns:1fr}
   .tool-grid{grid-template-columns:repeat(2,1fr)}
 }
+
+
+/* =========================
+   RESPONSIVE FIXES
+   ========================= */
+
+/* General mobile tweaks */
+@media (max-width: 768px) {
+
+  body {
+    font-size: 15px;
+  }
+
+  /* NAV */
+  .nav {
+    padding: 10px 14px;
+    gap: 10px;
+  }
+
+  .nav nav a {
+    font-size: 14px;
+    margin: 0 6px;
+  }
+
+  /* HERO */
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 22px 18px;
+    gap: 20px;
+  }
+
+  .hero-left h1 {
+    font-size: 2.1rem;
+    line-height: 1.2;
+  }
+
+  .hero-left .tag {
+    font-size: 0.95rem;
+  }
+
+  .hero-left .sub {
+    font-size: 0.95rem;
+    max-width: 100%;
+  }
+
+  .cta-row {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* Infinity animation */
+  .hero-right {
+    display: flex;
+    justify-content: center;
+  }
+
+  .infinity {
+    width: 220px;
+    height: auto;
+  }
+
+  /* SECTIONS */
+  .section {
+    padding: 22px 18px;
+  }
+
+  .section h2 {
+    font-size: 1.4rem;
+  }
+
+  /* PROJECT CARDS */
+  .projects {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .project {
+    padding: 16px;
+  }
+
+  .project h3 {
+    font-size: 1.05rem;
+  }
+
+  .project p {
+    font-size: 0.9rem;
+  }
+
+  /* CHIPS */
+  .chips {
+    gap: 8px;
+  }
+
+  .chip {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  /* CONTACT */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .contact.card {
+    padding: 14px;
+  }
+
+  /* FOOTER */
+  .foot {
+    font-size: 13px;
+    padding: 14px;
+  }
+}
+
+/* =========================
+   DESKTOP POLISH (SAFE)
+   ========================= */
+@media (min-width: 769px) {
+
+  .hero {
+    align-items: center;
+  }
+
+  .hero-left .sub {
+    max-width: 520px;
+  }
+
+  .projects {
+    gap: 22px;
+  }
+
+}
