@@ -1,945 +1,583 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>karandeven · DevOps & Cloud Engineering</title>
-  <meta name="description" content="karandeven — DevOps & Cloud Engineering student building real-world systems with Linux, AWS, Docker, and automation." />
-  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="karandeven — DevOps & Cloud Engineering. Building reliable, scalable infrastructure with focus on automation and operational excellence.">
+  <title>karandeven — DevOps & Cloud Engineering</title>
+  <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-  
-  <style>
-    :root {
-      --bg-dark: #0a0d1a;
-      --bg-darker: #060914;
-      --surface: rgba(255, 255, 255, 0.05);
-      --surface-hover: rgba(255, 255, 255, 0.08);
-      --border: rgba(255, 255, 255, 0.12);
-      --border-bright: rgba(255, 255, 255, 0.2);
-      
-      --primary: #00e5ff;
-      --primary-glow: rgba(0, 229, 255, 0.4);
-      --accent: #8b5cf6;
-      --accent-glow: rgba(139, 92, 246, 0.4);
-      --success: #10b981;
-      --warning: #f59e0b;
-      
-      --text: #f1f5f9;
-      --text-secondary: #94a3b8;
-      --text-muted: #64748b;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: var(--bg-darker);
-      color: var(--text);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* Background Effects */
-    .bg-canvas {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      background: 
-        radial-gradient(ellipse 800px 600px at 10% 20%, var(--accent-glow), transparent),
-        radial-gradient(ellipse 800px 600px at 90% 70%, var(--primary-glow), transparent),
-        radial-gradient(ellipse 600px 400px at 50% 50%, rgba(16, 185, 129, 0.15), transparent);
-      opacity: 0.6;
-    }
-
-    /* Navigation */
-    .nav {
-      position: sticky;
-      top: 1rem;
-      z-index: 100;
-      margin: 1rem auto;
-      max-width: 1200px;
-      padding: 0 1.5rem;
-    }
-
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.75rem 1.5rem;
-      background: var(--surface);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-    }
-
-    .brand {
-      font-size: 1.25rem;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .brand-dot {
-      width: 8px;
-      height: 8px;
-      background: linear-gradient(135deg, var(--accent), var(--primary));
-      border-radius: 50%;
-      animation: pulse 2s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.2); opacity: 0.8; }
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 0.5rem;
-    }
-
-    .nav-links a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      padding: 0.5rem 1rem;
-      border-radius: 10px;
-      font-size: 0.95rem;
-      font-weight: 500;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .nav-links a:hover {
-      color: var(--text);
-      background: var(--surface-hover);
-      transform: translateY(-1px);
-    }
-
-    /* Container */
-    main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Hero Section */
-    .hero {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 4rem;
-      align-items: center;
-      min-height: 85vh;
-      margin-bottom: 4rem;
-    }
-
-    .hero-content h1 {
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 1rem;
-      letter-spacing: -1px;
-    }
-
-    .gradient-text {
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      display: inline-block;
-    }
-
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.5rem 1rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--text-secondary);
-      margin-bottom: 1.5rem;
-    }
-
-    .status-dot {
-      width: 8px;
-      height: 8px;
-      background: var(--success);
-      border-radius: 50%;
-      animation: pulse 2s ease-in-out infinite;
-    }
-
-    .hero-description {
-      font-size: 1.15rem;
-      color: var(--text-secondary);
-      line-height: 1.7;
-      margin-bottom: 2rem;
-    }
-
-    .terminal {
-      background: rgba(0, 0, 0, 0.4);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1rem 1.5rem;
-      margin-bottom: 2rem;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.9rem;
-      color: var(--primary);
-      box-shadow: 0 0 20px var(--primary-glow);
-      min-height: 50px;
-      display: flex;
-      align-items: center;
-    }
-
-    .terminal-prefix {
-      color: var(--success);
-      margin-right: 0.5rem;
-    }
-
-    .terminal-text {
-      transition: opacity 0.3s ease;
-    }
-
-    .cta-buttons {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.875rem 1.75rem;
-      border-radius: 12px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      text-decoration: none;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      border: 1px solid transparent;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent), var(--primary));
-      color: var(--bg-darker);
-      box-shadow: 0 4px 20px var(--primary-glow);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px var(--primary-glow);
-    }
-
-    .btn-secondary {
-      background: var(--surface);
-      color: var(--text);
-      border-color: var(--border);
-    }
-
-    .btn-secondary:hover {
-      background: var(--surface-hover);
-      border-color: var(--border-bright);
-      transform: translateY(-2px);
-    }
-
-    /* Hero Visual */
-    .hero-visual {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .code-window {
-      width: 100%;
-      background: rgba(0, 0, 0, 0.4);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 1rem;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-    }
-
-    .window-header {
-      display: flex;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .window-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-    }
-
-    .dot-red { background: #ff5f56; }
-    .dot-yellow { background: #ffbd2e; }
-    .dot-green { background: #27c93f; }
-
-    .code-content {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.85rem;
-      line-height: 1.6;
-    }
-
-    .code-line {
-      display: block;
-      padding: 0.25rem 0;
-    }
-
-    .code-comment { color: var(--text-muted); }
-    .code-keyword { color: var(--accent); }
-    .code-string { color: var(--success); }
-    .code-function { color: var(--primary); }
-
-    /* Section Styling */
-    .section {
-      margin: 6rem 0;
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .section-title {
-      font-size: clamp(2rem, 4vw, 2.5rem);
-      font-weight: 800;
-      margin-bottom: 0.5rem;
-      letter-spacing: -0.5px;
-    }
-
-    .section-subtitle {
-      font-size: 1.1rem;
-      color: var(--text-secondary);
-    }
-
-    /* Cards */
-    .card {
-      background: var(--surface);
-      backdrop-filter: blur(20px);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 2rem;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .card:hover {
-      background: var(--surface-hover);
-      border-color: var(--border-bright);
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-    }
-
-    /* Skills Grid */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .skill-chip {
-      text-align: center;
-      padding: 1.5rem 1rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      color: var(--text-secondary);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .skill-chip:hover {
-      background: var(--surface-hover);
-      border-color: var(--primary);
-      color: var(--primary);
-      transform: translateY(-2px);
-      box-shadow: 0 0 20px var(--primary-glow);
-    }
-
-    /* Projects Grid */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .project-card {
-      position: relative;
-    }
-
-    .project-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      margin-bottom: 1rem;
-    }
-
-    .project-title {
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 0.5rem;
-    }
-
-    .project-badge {
-      padding: 0.25rem 0.75rem;
-      border-radius: 8px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .badge-active {
-      background: rgba(16, 185, 129, 0.2);
-      color: var(--success);
-      border: 1px solid var(--success);
-    }
-
-    .badge-planned {
-      background: rgba(245, 158, 11, 0.2);
-      color: var(--warning);
-      border: 1px solid var(--warning);
-    }
-
-    .project-description {
-      color: var(--text-secondary);
-      margin-bottom: 1.5rem;
-      line-height: 1.7;
-    }
-
-    .tech-stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .tech-tag {
-      padding: 0.4rem 0.8rem;
-      background: rgba(0, 0, 0, 0.3);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      font-size: 0.8rem;
-      color: var(--text-secondary);
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    .project-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: all 0.3s ease;
-    }
-
-    .project-link:hover {
-      gap: 0.75rem;
-      color: var(--accent);
-    }
-
-    /* Contact Grid */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .contact-card {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .contact-label {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-weight: 600;
-    }
-
-    .contact-value {
-      font-size: 1.1rem;
-      color: var(--primary);
-      font-weight: 600;
-    }
-
-    .contact-card:hover .contact-value {
-      color: var(--accent);
-    }
-
-    /* Footer */
-    footer {
-      margin-top: 6rem;
-      padding: 2rem;
-      text-align: center;
-      color: var(--text-muted);
-      border-top: 1px solid var(--border);
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .hero {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        min-height: auto;
-      }
-
-      .hero-visual {
-        order: -1;
-      }
-
-      .nav-inner {
-        padding: 0.75rem 1rem;
-      }
-
-      .nav-links {
-        gap: 0.25rem;
-      }
-
-      .nav-links a {
-        padding: 0.5rem 0.75rem;
-        font-size: 0.85rem;
-      }
-
-      .skills-grid {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      }
-
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .cta-buttons {
-        flex-direction: column;
-      }
-
-      .btn {
-        justify-content: center;
-      }
-    }
-
-    /* Animations */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .fade-in {
-      animation: fadeInUp 0.8s ease-out forwards;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-
 <body>
-  <div class="bg-canvas"></div>
+
+  <!-- Animated Background -->
+  <div class="bg-wrapper">
+    <div class="bg-gradient"></div>
+    <div class="bg-grid"></div>
+  </div>
 
   <!-- Navigation -->
-  <nav class="nav">
-    <div class="nav-inner">
-      <div class="brand">
-        karandeven
-        <div class="brand-dot"></div>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <span class="brand-text">karandeven</span>
+        <span class="brand-status"></span>
       </div>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+      <div class="nav-menu" id="navMenu">
+        <a href="#hero" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#expertise" class="nav-link">Expertise</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
       </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
 
-  <main>
-    <!-- Hero -->
-    <section class="hero">
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="hero-container">
       <div class="hero-content">
-        <h1>
-          hi, I'm <span class="gradient-text">karandeven</span>
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span class="badge-text">Available for Opportunities</span>
+        </div>
+        <h1 class="hero-title">
+          <span class="title-line">DevOps & Cloud</span>
+          <span class="title-line">Engineering</span>
         </h1>
-        
-        <div class="hero-tag">
-          <div class="status-dot"></div>
-          DevOps & Cloud · Final-Year Student (2026)
-        </div>
-
         <p class="hero-description">
-          I'm learning DevOps by doing — setting up Linux systems,
-          experimenting on cloud VMs, building automation pipelines,
-          and slowly building real understanding through hands-on projects.
+          Building resilient infrastructure and automating deployment pipelines.
+          Specializing in cloud architecture, containerization, and CI/CD workflows.
         </p>
-
-        <div class="terminal">
-          <span class="terminal-prefix">$</span>
-          <span class="terminal-text" id="terminal-output">learn → break → fix → repeat</span>
-        </div>
-
-        <div class="cta-buttons">
+        <div class="hero-actions">
           <a href="#projects" class="btn btn-primary">
-            <span>View Projects</span>
-            <span>→</span>
+            <span>View Work</span>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M4 10h12m0 0l-6-6m6 6l-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
           </a>
-          <a href="#contact" class="btn btn-secondary">
-            Get in Touch
-          </a>
+          <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-value">5+</div>
+            <div class="stat-label">Technologies</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <div class="stat-value">10+</div>
+            <div class="stat-label">Projects</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <div class="stat-value">24/7</div>
+            <div class="stat-label">Uptime Focus</div>
+          </div>
         </div>
       </div>
-
       <div class="hero-visual">
-        <div class="code-window">
-          <div class="window-header">
-            <div class="window-dot dot-red"></div>
-            <div class="window-dot dot-yellow"></div>
-            <div class="window-dot dot-green"></div>
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <div class="terminal-title">bash</div>
+            <div class="terminal-actions"></div>
           </div>
-          <div class="code-content">
-            <span class="code-line"><span class="code-comment"># sentinel_brain.sh</span></span>
-            <span class="code-line"><span class="code-keyword">echo</span> <span class="code-string">"SentinelOps Brain started"</span></span>
-            <span class="code-line"></span>
-            <span class="code-line"><span class="code-function">cpu_usage</span>=$(top -bn1)</span>
-            <span class="code-line"><span class="code-function">ram_usage</span>=$(free | awk)</span>
-            <span class="code-line"><span class="code-function">disk_usage</span>=$(df /)</span>
-            <span class="code-line"></span>
-            <span class="code-line"><span class="code-keyword">if</span> [[ $cpu_usage -ge 80 ]]</span>
-            <span class="code-line">  <span class="code-function">log</span> <span class="code-string">"ALERT: CPU high"</span></span>
-            <span class="code-line"><span class="code-keyword">fi</span></span>
+          <div class="terminal-body">
+            <div class="terminal-line">
+              <span class="prompt">karandeven@devops</span>
+              <span class="prompt-symbol">~$</span>
+              <span class="command">docker ps</span>
+            </div>
+            <div class="terminal-output">
+              <div class="output-line">CONTAINER ID   STATUS       PORTS</div>
+              <div class="output-line">a7f3c8b9     Up 2 days    0.0.0.0:80->80/tcp</div>
+              <div class="output-line">d4e9f1a2     Up 5 days    0.0.0.0:443->443/tcp</div>
+            </div>
+            <div class="terminal-line">
+              <span class="prompt">karandeven@devops</span>
+              <span class="prompt-symbol">~$</span>
+              <span class="command typing-cursor">kubectl get pods</span>
+            </div>
+          </div>
+        </div>
+        <div class="floating-card card-1">
+          <div class="card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M20 7h-4V5c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zM10 5h4v2h-4V5zm11 15H3V9h18v11z" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="card-content">
+            <div class="card-title">AWS</div>
+            <div class="card-status">Active</div>
+          </div>
+        </div>
+        <div class="floating-card card-2">
+          <div class="card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="card-content">
+            <div class="card-title">Docker</div>
+            <div class="card-status">Running</div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- About -->
-    <section id="about" class="section">
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="section-container">
       <div class="section-header">
+        <span class="section-label">Who I Am</span>
         <h2 class="section-title">About Me</h2>
-        <p class="section-subtitle">
-          Building foundations through real-world experience
-        </p>
       </div>
-
-      <div class="card" style="max-width: 800px; margin: 0 auto;">
-        <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 1rem;">
-          I'm a final-year undergraduate student based in Mumbai, focused on building
-          a strong foundation in DevOps and cloud engineering by working directly with
-          Linux systems, AWS infrastructure, and automation tools.
-        </p>
-        <p style="font-size: 1rem; color: var(--text-muted); line-height: 1.7;">
-          This portfolio is intentionally simple and honest. It shows what I am learning
-          and building — not exaggerated claims. Every project here represents real hands-on
-          work and genuine learning experiences.
-        </p>
-      </div>
-    </section>
-
-    <!-- Skills -->
-    <section id="skills" class="section">
-      <div class="section-header">
-        <h2 class="section-title">Skills & Technologies</h2>
-        <p class="section-subtitle">
-          Tools and platforms I work with daily
-        </p>
-      </div>
-
-      <div class="skills-grid">
-        <div class="skill-chip">Linux</div>
-        <div class="skill-chip">Bash</div>
-        <div class="skill-chip">AWS EC2</div>
-        <div class="skill-chip">Docker</div>
-        <div class="skill-chip">Git</div>
-        <div class="skill-chip">GitHub Actions</div>
-        <div class="skill-chip">Python</div>
-        <div class="skill-chip">Node.js</div>
-        <div class="skill-chip">Terraform</div>
-        <div class="skill-chip">SSH</div>
-      </div>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects" class="section">
-      <div class="section-header">
-        <h2 class="section-title">Projects & Labs</h2>
-        <p class="section-subtitle">
-          Real-world applications and learning experiments
-        </p>
-      </div>
-
-      <div class="projects-grid">
-        <!-- SentinelOps -->
-        <article class="card project-card">
-          <div class="project-header">
-            <div>
-              <h3 class="project-title">SentinelOps</h3>
-            </div>
-            <span class="project-badge badge-active">Active</span>
-          </div>
-
-          <p class="project-description">
-            SentinelOps is my long-term personal learning project focused on Linux
-            system monitoring and automation. It includes CPU, RAM, and disk usage
-            tracking with custom alerting thresholds and log management.
+      <div class="about-content">
+        <div class="about-text">
+          <p class="lead-text">
+            I'm a DevOps and Cloud Engineering enthusiast focused on building infrastructure 
+            that enables teams to ship faster and more reliably.
           </p>
+          <p>
+            My approach combines automation, monitoring, and infrastructure as code to create 
+            systems that are both scalable and maintainable. I believe in continuous learning 
+            and staying current with cloud-native technologies.
+          </p>
+          <p>
+            Currently exploring containerization, orchestration, and modern CI/CD practices 
+            while building real-world projects that solve actual problems.
+          </p>
+          <div class="about-highlights">
+            <div class="highlight-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <span>Linux System Administration</span>
+            </div>
+            <div class="highlight-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <span>Cloud Infrastructure Design</span>
+            </div>
+            <div class="highlight-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <span>Automation & Scripting</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-image">
+          <div class="image-placeholder">
+            <svg width="200" height="200" viewBox="0 0 200 200">
+              <defs>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                </linearGradient>
+              </defs>
+              <rect width="200" height="200" rx="20" fill="url(#grad1)" opacity="0.1"/>
+              <text x="100" y="100" text-anchor="middle" dominant-baseline="middle" font-size="80" fill="url(#grad1)" font-weight="600">K</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-          <div class="tech-stack">
+  <!-- Expertise Section -->
+  <section id="expertise" class="expertise">
+    <div class="section-container">
+      <div class="section-header center">
+        <span class="section-label">What I Do</span>
+        <h2 class="section-title">Technical Expertise</h2>
+        <p class="section-description">
+          Specialized in modern DevOps practices and cloud-native technologies
+        </p>
+      </div>
+      <div class="expertise-grid">
+        
+        <div class="expertise-card">
+          <div class="card-header">
+            <div class="card-icon-wrapper">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                <path d="M3 15v4c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-4M17 9l-5 5-5-5M12 4v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="card-title">Cloud Infrastructure</h3>
+          </div>
+          <p class="card-description">
+            Designing and deploying scalable cloud architectures on AWS. Experience with EC2, VPC, S3, and infrastructure automation.
+          </p>
+          <ul class="card-tech">
+            <li>AWS</li>
+            <li>Terraform</li>
+            <li>CloudFormation</li>
+          </ul>
+        </div>
+
+        <div class="expertise-card">
+          <div class="card-header">
+            <div class="card-icon-wrapper">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="card-title">Containerization</h3>
+          </div>
+          <p class="card-description">
+            Building and orchestrating containerized applications. Creating efficient Docker workflows and exploring Kubernetes deployments.
+          </p>
+          <ul class="card-tech">
+            <li>Docker</li>
+            <li>Docker Compose</li>
+            <li>Kubernetes</li>
+          </ul>
+        </div>
+
+        <div class="expertise-card">
+          <div class="card-header">
+            <div class="card-icon-wrapper">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="card-title">CI/CD Pipelines</h3>
+          </div>
+          <p class="card-description">
+            Implementing automated deployment workflows using GitHub Actions. Building reliable pipelines for continuous integration and delivery.
+          </p>
+          <ul class="card-tech">
+            <li>GitHub Actions</li>
+            <li>Jenkins</li>
+            <li>GitLab CI</li>
+          </ul>
+        </div>
+
+        <div class="expertise-card">
+          <div class="card-header">
+            <div class="card-icon-wrapper">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                <path d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="card-title">System Monitoring</h3>
+          </div>
+          <p class="card-description">
+            Creating monitoring solutions for system health and performance. Building custom tools for metrics collection and alerting.
+          </p>
+          <ul class="card-tech">
+            <li>Prometheus</li>
+            <li>Grafana</li>
+            <li>Custom Scripts</li>
+          </ul>
+        </div>
+
+        <div class="expertise-card">
+          <div class="card-header">
+            <div class="card-icon-wrapper">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="card-title">Security & Hardening</h3>
+          </div>
+          <p class="card-description">
+            Implementing security best practices for cloud infrastructure. SSH hardening, firewall configuration, and access control management.
+          </p>
+          <ul class="card-tech">
+            <li>Security Audits</li>
+            <li>UFW/iptables</li>
+            <li>SSH Hardening</li>
+          </ul>
+        </div>
+
+        <div class="expertise-card">
+          <div class="card-header">
+            <div class="card-icon-wrapper">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="card-title">Automation Scripts</h3>
+          </div>
+          <p class="card-description">
+            Writing efficient automation scripts in Bash and Python. Streamlining repetitive tasks and improving operational efficiency.
+          </p>
+          <ul class="card-tech">
+            <li>Bash</li>
+            <li>Python</li>
+            <li>Shell Scripting</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
+    <div class="section-container">
+      <div class="section-header center">
+        <span class="section-label">My Work</span>
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-description">
+          Real-world applications demonstrating DevOps and cloud engineering skills
+        </p>
+      </div>
+      <div class="projects-grid">
+
+        <article class="project-card featured">
+          <div class="project-badge">Featured</div>
+          <div class="project-header">
+            <h3 class="project-title">SentinelOps</h3>
+            <div class="project-status active">Active</div>
+          </div>
+          <p class="project-description">
+            Comprehensive Linux system monitoring solution with real-time metrics tracking, 
+            threshold-based alerting, and automated log management. Built for production environments.
+          </p>
+          <div class="project-metrics">
+            <div class="metric">
+              <span class="metric-label">Language</span>
+              <span class="metric-value">Bash</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Type</span>
+              <span class="metric-value">Monitoring</span>
+            </div>
+          </div>
+          <div class="project-tech">
             <span class="tech-tag">Bash</span>
             <span class="tech-tag">Linux</span>
-            <span class="tech-tag">Systems</span>
             <span class="tech-tag">Monitoring</span>
+            <span class="tech-tag">Automation</span>
           </div>
-
           <a href="https://github.com/karandeven/sentinelops-linux-monitor" target="_blank" rel="noopener" class="project-link">
-            View on GitHub →
+            <span>View Project</span>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
           </a>
         </article>
 
-        <!-- EchoCrypt -->
-        <article class="card project-card">
+        <article class="project-card">
           <div class="project-header">
-            <div>
-              <h3 class="project-title">EchoCrypt</h3>
-            </div>
-            <span class="project-badge badge-active">Active</span>
+            <h3 class="project-title">EchoCrypt</h3>
+            <div class="project-status active">Active</div>
           </div>
-
           <p class="project-description">
-            Secure real-time messaging system with end-to-end encryption. Built as a
-            final year engineering project using client-side encryption with AES & RSA,
-            ensuring privacy-first architecture where the server cannot read messages.
+            Secure real-time messaging platform with end-to-end encryption. 
+            Implements AES and RSA cryptography for privacy-first communication.
           </p>
-
-          <div class="tech-stack">
+          <div class="project-metrics">
+            <div class="metric">
+              <span class="metric-label">Stack</span>
+              <span class="metric-value">Full Stack</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Focus</span>
+              <span class="metric-value">Security</span>
+            </div>
+          </div>
+          <div class="project-tech">
             <span class="tech-tag">React</span>
             <span class="tech-tag">Node.js</span>
             <span class="tech-tag">Socket.IO</span>
-            <span class="tech-tag">Web Crypto API</span>
+            <span class="tech-tag">Crypto</span>
           </div>
-
           <a href="https://github.com/karandeven/echocrypt-secure-chat" target="_blank" rel="noopener" class="project-link">
-            View on GitHub →
+            <span>View Project</span>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
           </a>
         </article>
 
-        <!-- OmniOps -->
-        <article class="card project-card">
+        <article class="project-card">
           <div class="project-header">
-            <div>
-              <h3 class="project-title">OmniOps</h3>
-            </div>
-            <span class="project-badge badge-active">Active</span>
+            <h3 class="project-title">OmniOps Platform</h3>
+            <div class="project-status active">Active</div>
           </div>
-
           <p class="project-description">
-            Multi-environment DevOps platform demonstrating containerization with Docker.
-            Features environment-specific configurations, CI/CD integration, and clean
-            deployment workflows.
+            Multi-environment DevOps platform with containerized deployments. 
+            Demonstrates CI/CD integration and environment-specific configurations.
           </p>
-
-          <div class="tech-stack">
+          <div class="project-metrics">
+            <div class="metric">
+              <span class="metric-label">Tech</span>
+              <span class="metric-value">Docker</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Type</span>
+              <span class="metric-value">Platform</span>
+            </div>
+          </div>
+          <div class="project-tech">
             <span class="tech-tag">Docker</span>
             <span class="tech-tag">Python</span>
-            <span class="tech-tag">Linux</span>
+            <span class="tech-tag">CI/CD</span>
             <span class="tech-tag">DevOps</span>
           </div>
-
           <a href="https://github.com/karandeven/omniops-devops-platform" target="_blank" rel="noopener" class="project-link">
-            View on GitHub →
+            <span>View Project</span>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
           </a>
         </article>
 
-        <!-- 90 Days of DevOps -->
-        <article class="card project-card">
+        <article class="project-card">
           <div class="project-header">
-            <div>
-              <h3 class="project-title">90 Days of DevOps 2026</h3>
-            </div>
-            <span class="project-badge badge-active">Active</span>
+            <h3 class="project-title">Cloud Hardening Lab</h3>
+            <div class="project-status ongoing">Ongoing</div>
           </div>
-
           <p class="project-description">
-            Personal learning journey documenting DevOps fundamentals through hands-on
-            practice. Covers networking basics, OSI & TCP/IP models, Linux administration,
-            and cloud concepts with detailed notes and labs.
+            AWS EC2 security hardening implementation. SSH configuration, 
+            user management, firewall rules, and security best practices.
           </p>
-
-          <div class="tech-stack">
-            <span class="tech-tag">Networking</span>
-            <span class="tech-tag">Linux</span>
-            <span class="tech-tag">Cloud</span>
-            <span class="tech-tag">Learning</span>
-          </div>
-
-          <a href="https://github.com/karandeven/90DaysOfDevOps-2026" target="_blank" rel="noopener" class="project-link">
-            View on GitHub →
-          </a>
-        </article>
-
-        <!-- Linux Hardening -->
-        <article class="card project-card">
-          <div class="project-header">
-            <div>
-              <h3 class="project-title">Linux Hardening Lab</h3>
+          <div class="project-metrics">
+            <div class="metric">
+              <span class="metric-label">Platform</span>
+              <span class="metric-value">AWS</span>
             </div>
-            <span class="project-badge badge-active">Active</span>
+            <div class="metric">
+              <span class="metric-label">Focus</span>
+              <span class="metric-value">Security</span>
+            </div>
           </div>
-
-          <p class="project-description">
-            Practicing Linux administration and security on AWS EC2: user management,
-            SSH hardening, sudo rules, firewall configuration with UFW, and basic
-            system monitoring.
-          </p>
-
-          <div class="tech-stack">
-            <span class="tech-tag">Linux</span>
+          <div class="project-tech">
             <span class="tech-tag">AWS EC2</span>
-            <span class="tech-tag">Security</span>
-            <span class="tech-tag">Bash</span>
-          </div>
-
-          <a href="https://github.com/karandeven" target="_blank" rel="noopener" class="project-link">
-            View on GitHub →
-          </a>
-        </article>
-
-        <!-- Docker Lab -->
-        <article class="card project-card">
-          <div class="project-header">
-            <div>
-              <h3 class="project-title">Docker Learning Lab</h3>
-            </div>
-            <span class="project-badge badge-planned">Planned</span>
-          </div>
-
-          <p class="project-description">
-            Learning Docker fundamentals by containerizing services and understanding
-            container orchestration. Will include multi-stage builds, Docker Compose,
-            and deployment workflows.
-          </p>
-
-          <div class="tech-stack">
-            <span class="tech-tag">Docker</span>
-            <span class="tech-tag">Containers</span>
             <span class="tech-tag">Linux</span>
+            <span class="tech-tag">Security</span>
+            <span class="tech-tag">SSH</span>
           </div>
-
           <a href="https://github.com/karandeven" target="_blank" rel="noopener" class="project-link">
-            View on GitHub →
+            <span>View Project</span>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
           </a>
         </article>
+
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Contact -->
-    <section id="contact" class="section">
-      <div class="section-header">
-        <h2 class="section-title">Get In Touch</h2>
-        <p class="section-subtitle">
-          Let's connect and collaborate
-        </p>
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="section-container">
+      <div class="contact-wrapper">
+        <div class="contact-content">
+          <span class="section-label">Get In Touch</span>
+          <h2 class="section-title">Let's Connect</h2>
+          <p class="contact-text">
+            Open to collaboration, technical discussions, and opportunities in DevOps and Cloud Engineering. 
+            Feel free to reach out via email or connect on GitHub.
+          </p>
+          <div class="contact-methods">
+            <a href="mailto:karandeven@proton.me" class="contact-item">
+              <div class="contact-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="contact-info">
+                <div class="contact-label">Email</div>
+                <div class="contact-value">karandeven@proton.me</div>
+              </div>
+            </a>
+            <a href="https://github.com/karandeven" target="_blank" rel="noopener" class="contact-item">
+              <div class="contact-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z" fill="currentColor"/>
+                </svg>
+              </div>
+              <div class="contact-info">
+                <div class="contact-label">GitHub</div>
+                <div class="contact-value">github.com/karandeven</div>
+              </div>
+            </a>
+            <a href="https://t.me/KRN0G" target="_blank" rel="noopener" class="contact-item">
+              <div class="contact-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z" fill="currentColor"/>
+                </svg>
+              </div>
+              <div class="contact-info">
+                <div class="contact-label">Telegram</div>
+                <div class="contact-value">@KRN0G</div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="contact-visual">
+          <div class="visual-card">
+            <div class="visual-header">
+              <div class="visual-icon">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z" fill="currentColor" opacity="0.1"/>
+                  <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z" stroke="currentColor" stroke-width="2"/>
+                </svg>
+              </div>
+              <div class="visual-text">
+                <div class="visual-title">Response Time</div>
+                <div class="visual-subtitle">Typically within 48 hours</div>
+              </div>
+            </div>
+            <div class="visual-stats">
+              <div class="stat-bar">
+                <div class="stat-bar-fill" style="width: 95%"></div>
+              </div>
+              <div class="stat-text">95% Response Rate</div>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <div class="contact-grid">
-        <a href="mailto:karandeven@proton.me" class="card contact-card">
-          <span class="contact-label">Email</span>
-          <span class="contact-value">karandeven@proton.me</span>
-        </a>
-
-        <a href="https://github.com/karandeven" target="_blank" rel="noopener" class="card contact-card">
-          <span class="contact-label">GitHub</span>
-          <span class="contact-value">github.com/karandeven</span>
-        </a>
-
-        <a href="https://t.me/KRN0G" target="_blank" rel="noopener" class="card contact-card">
-          <span class="contact-label">Telegram</span>
-          <span class="contact-value">@KRN0G</span>
-        </a>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="brand-text">karandeven</div>
+          <p class="footer-tagline">Building reliable infrastructure, one commit at a time.</p>
+        </div>
+        <div class="footer-links">
+          <a href="#hero">Home</a>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
       </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>© <span id="year"></span> karandeven · Built with focus and intention</p>
+      <div class="footer-bottom">
+        <p class="footer-copyright">2026 karandeven. All rights reserved.</p>
+        <div class="footer-social">
+          <a href="https://github.com/karandeven" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
   </footer>
 
-  <script>
-    // Update year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Terminal rotation messages
-    const terminalMessages = [
-      'learn → break → fix → repeat',
-      'Running CI on GitHub Actions…',
-      'Provisioning VPC with Terraform…',
-      'Building Docker image…',
-      'Deploying to AWS EC2…',
-      'Scanning images with Trivy…',
-      'tail -f logs | grep ERROR…',
-      'IaC > manual clicks.',
-      'chmod +x deploy.sh && ./deploy.sh',
-      'kubectl apply -f deployment.yaml'
-    ];
-
-    let messageIndex = 0;
-    const terminalOutput = document.getElementById('terminal-output');
-
-    function rotateTerminalMessage() {
-      if (!terminalOutput) return;
-      
-      terminalOutput.style.opacity = '0';
-      
-      setTimeout(() => {
-        messageIndex = (messageIndex + 1) % terminalMessages.length;
-        terminalOutput.textContent = terminalMessages[messageIndex];
-        terminalOutput.style.opacity = '1';
-      }, 300);
-    }
-
-    setInterval(rotateTerminalMessage, 3000);
-
-    // Smooth scroll with offset for fixed nav
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          window.scrollTo({
-            top: target.offsetTop - 100,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
