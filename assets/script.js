@@ -1,18 +1,22 @@
-// Mobile Navigation Toggle
-const navToggle = document.getElementById('navToggle');
-const navMenu = document.getElementById('navMenu');
-const navLinks = document.querySelectorAll('.nav-link');
+// =============================================
+// ULTRA PREMIUM BLACK PORTFOLIO - JAVASCRIPT
+// =============================================
 
-navToggle.addEventListener('click', () => {
-  navToggle.classList.toggle('active');
-  navMenu.classList.toggle('active');
+// Mobile Navigation Toggle
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+const navLinkItems = document.querySelectorAll('.nav-link');
+
+menuToggle.addEventListener('click', () => {
+  menuToggle.classList.toggle('active');
+  navLinks.classList.toggle('active');
 });
 
 // Close mobile menu when clicking on a link
-navLinks.forEach(link => {
+navLinkItems.forEach(link => {
   link.addEventListener('click', () => {
-    navToggle.classList.remove('active');
-    navMenu.classList.remove('active');
+    menuToggle.classList.remove('active');
+    navLinks.classList.remove('active');
   });
 });
 
@@ -45,14 +49,41 @@ function updateActiveNav() {
     const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
 
     if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+      navLinkItems.forEach(link => link.classList.remove('active'));
       navLink?.classList.add('active');
-    } else {
-      navLink?.classList.remove('active');
     }
   });
 }
 
 window.addEventListener('scroll', updateActiveNav);
+
+// Terminal Typing Effect
+const commands = [
+  'kubectl get pods',
+  'docker ps -a',
+  'terraform apply',
+  'git push origin main',
+  'npm run build',
+  'systemctl status nginx',
+  'aws s3 ls',
+  'helm install app ./chart'
+];
+
+let commandIndex = 0;
+const typingCommand = document.getElementById('typingCommand');
+
+function rotateCommand() {
+  if (typingCommand) {
+    typingCommand.style.opacity = '0';
+    setTimeout(() => {
+      commandIndex = (commandIndex + 1) % commands.length;
+      typingCommand.textContent = commands[commandIndex];
+      typingCommand.style.opacity = '1';
+    }, 300);
+  }
+}
+
+setInterval(rotateCommand, 4000);
 
 // Intersection Observer for Fade-in Animations
 const observerOptions = {
@@ -69,45 +100,59 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
-// Observe all sections and cards
-document.querySelectorAll('section, .expertise-card, .project-card').forEach(el => {
+// Observe sections and cards
+document.querySelectorAll('.expertise-card, .project-card, .about-grid, .contact-card').forEach(el => {
   observer.observe(el);
 });
 
-// Dynamic Year in Footer
-const yearElement = document.querySelector('.footer-copyright');
-if (yearElement) {
-  const currentYear = new Date().getFullYear();
-  yearElement.textContent = `${currentYear} karandeven. All rights reserved.`;
-}
-
-// Terminal Typing Effect
-const terminalCommands = [
-  'kubectl get pods',
-  'docker ps -a',
-  'terraform apply',
-  'git push origin main',
-  'npm run build',
-  'systemctl status nginx'
-];
-
-let commandIndex = 0;
-const commandElement = document.querySelector('.typing-cursor');
-
-function rotateCommand() {
-  if (commandElement) {
-    commandElement.style.opacity = '0';
-    setTimeout(() => {
-      commandIndex = (commandIndex + 1) % terminalCommands.length;
-      commandElement.textContent = terminalCommands[commandIndex];
-      commandElement.style.opacity = '1';
-    }, 300);
-  }
-}
-
-setInterval(rotateCommand, 4000);
+// Parallax Effect for Gradient Orbs
+window.addEventListener('mousemove', (e) => {
+  const orbs = document.querySelectorAll('.gradient-orb');
+  const x = e.clientX / window.innerWidth;
+  const y = e.clientY / window.innerHeight;
+  
+  orbs.forEach((orb, index) => {
+    const speed = (index + 1) * 20;
+    orb.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+  });
+});
 
 // Console Branding
-console.log('%ckarandeven.dev', 'color: #6366f1; font-size: 24px; font-weight: bold;');
-console.log('%cDevOps & Cloud Engineering', 'color: #8b5cf6; font-size: 14px;');
-console.log('%cBuilt with modern web technologies', 'color: #10b981; font-size: 12px;');
+console.log(
+  '%ckarandeven.dev',
+  'color: #3b82f6; font-size: 28px; font-weight: bold; text-shadow: 2px 2px 4px rgba(59, 130, 246, 0.5);'
+);
+console.log(
+  '%c🚀 DevOps & Cloud Engineering Portfolio',
+  'color: #8b5cf6; font-size: 16px; font-weight: bold;'
+);
+console.log(
+  '%c⚡ Ultra Premium Design • Built with Pure HTML, CSS & JS',
+  'color: #10b981; font-size: 12px;'
+);
+console.log(
+  '%c💻 No frameworks, just clean code',
+  'color: #a3a3a3; font-size: 11px;'
+);
+
+// Performance Logging
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    const perfData = performance.timing;
+    const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
+    console.log(
+      `%c⏱️ Page loaded in ${pageLoadTime}ms`,
+      'color: #3b82f6; font-size: 12px; font-weight: bold;'
+    );
+  }, 0);
+});
+
+// Prevent right-click (Optional - Remove if not needed)
+// document.addEventListener('contextmenu', e => e.preventDefault());
+
+// Add year to footer
+const yearElement = document.querySelector('.footer-bottom p');
+if (yearElement) {
+  const currentYear = new Date().getFullYear();
+  yearElement.innerHTML = `&copy; ${currentYear} karandeven. All rights reserved.`;
+}
